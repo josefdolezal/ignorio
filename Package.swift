@@ -6,7 +6,7 @@ let package = Package(
     name: "ignorio",
     targets: [
         Target(
-            name: "Ignorio",
+            name: "ignorio",
             dependencies: ["IgnorioKit"]
         ),
         Target(name: "IgnorioKit")
