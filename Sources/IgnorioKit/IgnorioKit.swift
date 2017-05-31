@@ -27,6 +27,12 @@ public struct IgnorioKit {
         return result
     }
 
+    public func list() -> RequestResult {
+        let result = synchronousRequest(GitignoreioAPI.list.request)
+
+        return result
+    }
+
     /// Creates synchronuous URL request call
     ///
     /// - Parameter request: Request which will be called
