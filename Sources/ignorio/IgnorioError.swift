@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// <#Description#>
+///
+/// - zeroTypesCount: Thrown if no argument is given
 enum IgnorioError: Error, CustomStringConvertible {
     case zeroTypesCount
 

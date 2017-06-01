@@ -10,6 +10,7 @@ import Commander
 import Result
 import IgnorioKit
 
+/// Commands which lists supported types for fetch command
 let listCommnad = command {
     try commonResult { $0.list() }
 }

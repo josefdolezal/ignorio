@@ -1,3 +1,11 @@
+//
+//  main.swift
+//  ignorio
+//
+//  Created by Josef Dolezal on 31/05/2017.
+//
+//
+
 import Commander
 
 let main = Group {

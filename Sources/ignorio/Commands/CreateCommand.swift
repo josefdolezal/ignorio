@@ -11,6 +11,7 @@ import Commander
 import Result
 import IgnorioKit
 
+/// Command for .gitignore file fetch
 let createCommand = command(
     VariadicArgument<String>("TYPES", description: "Collection of types separated with space",
                              validator: typesValidator)

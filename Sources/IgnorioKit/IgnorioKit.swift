@@ -17,16 +17,19 @@ public struct IgnorioKit {
     /// Public accessible initializer
     public init() { }
 
-    /// Requests .gitignore file content from API
+    /// Requests .gitignore file content from API. The request is synchronous.
     ///
     /// - Parameter types: List of types used to generate .gitignore
-    /// - Returns: The request result
+    /// - Returns: Content of .gitignore file content on success, failure otherwise
     public func create(types: [String]) -> RequestResult {
         let result = synchronousRequest(GitignoreioAPI.create(types: types).request)
 
         return result
     }
 
+    /// Requests list of supported types for .gitignore file. The request is synchronous.
+    ///
+    /// - Returns: String representation of supported types on success, failure otherwise
     public func list() -> RequestResult {
         let result = synchronousRequest(GitignoreioAPI.list.request)
 
@@ -59,8 +62,6 @@ public struct IgnorioKit {
                 semaphore.signal()
                 return
             }
-
-
 
             // Create success result
             result = .success(responseText)

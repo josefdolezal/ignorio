@@ -9,7 +9,7 @@
 import Result
 import IgnorioKit
 
-/// Common Ignorio result handler
+/// Common Ignorio result handler, used as simple wrapper for requests results.
 ///
 /// - Parameter resultFactory: Result factory
 /// - Throws: Rethrows IgnorioKitError
