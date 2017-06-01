@@ -16,5 +16,7 @@ let createCommand = command(
     VariadicArgument<String>("TYPES", description: "Collection of types separated with space",
                              validator: typesValidator)
 ) { types in
-    try commonResult { $0.create(types: types) }
+    let data = try commonResult { $0.create(types: types) }
+
+    print(data)
 }

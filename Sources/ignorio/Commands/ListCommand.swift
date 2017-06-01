@@ -12,5 +12,7 @@ import IgnorioKit
 
 /// Commands which lists supported types for fetch command
 let listCommnad = command {
-    try commonResult { $0.list() }
+    let data = try commonResult { $0.list() }
+
+    print(data)
 }
