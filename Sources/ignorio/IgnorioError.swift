@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// <#Description#>
+/// Errors occured in command line interface
 ///
 /// - zeroTypesCount: Thrown if no argument is given
 enum IgnorioError: Error, CustomStringConvertible {
