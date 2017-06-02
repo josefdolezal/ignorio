@@ -16,7 +16,5 @@ let createCommand = command(
     VariadicArgument<String>("TYPES", description: "Collection of types separated with space",
                              validator: typesValidator)
 ) { types in
-    let data = try commonResult { $0.create(types: types) }
-
-    print(data)
+    print(try createGitignore(for: types))
 }

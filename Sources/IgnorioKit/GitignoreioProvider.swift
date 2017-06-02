@@ -1,5 +1,5 @@
 //
-//  IgnorioKit.swift
+//  GitignoreioProvider.swift
 //  ignorio
 //
 //  Created by Josef Dolezal on 31/05/2017.
@@ -10,18 +10,18 @@ import Foundation
 import Result
 
 /// Main logic for files retrieving
-public struct IgnorioKit {
+struct GitignoreioProvider {
     /// Shortcut for result type
-    public typealias RequestResult = Result<String, IgnorioKitError>
+    typealias RequestResult = Result<String, IgnorioKitError>
 
     /// Public accessible initializer
-    public init() { }
+    init() { }
 
     /// Requests .gitignore file content from API. The request is synchronous.
     ///
     /// - Parameter types: List of types used to generate .gitignore
     /// - Returns: Content of .gitignore file content on success, failure otherwise
-    public func create(types: [String]) -> RequestResult {
+    func create(types: [String]) -> RequestResult {
         let result = synchronousRequest(GitignoreioAPI.create(types: types).request)
 
         return result
@@ -30,7 +30,7 @@ public struct IgnorioKit {
     /// Requests list of supported types for .gitignore file. The request is synchronous.
     ///
     /// - Returns: String representation of supported types on success, failure otherwise
-    public func list() -> RequestResult {
+    func list() -> RequestResult {
         let result = synchronousRequest(GitignoreioAPI.list.request)
 
         return result
@@ -40,7 +40,7 @@ public struct IgnorioKit {
     ///
     /// - Parameter request: Request which will be called
     /// - Returns: Network request result
-    private func synchronousRequest(_ request: URLRequest) -> RequestResult {
+    func synchronousRequest(_ request: URLRequest) -> RequestResult {
         // Semaphore which makes the call synchronous
         let semaphore = DispatchSemaphore(value: 0)
         // Default result value

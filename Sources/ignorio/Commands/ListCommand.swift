@@ -12,7 +12,10 @@ import IgnorioKit
 
 /// Commands which lists supported types for fetch command
 let listCommnad = command {
-    let data = try commonResult { $0.list() }
+    let alphabeticList = try listSupportedTypes()
+    let list = alphabeticList
+        .map { $0.joined(separator: ",") }
+        .joined(separator: "\n")
 
-    print(data)
+    print(list)
 }
