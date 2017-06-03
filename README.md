@@ -10,9 +10,9 @@ $ ignorio create macos xcode swift > .gitignore
 This will fetch a `.gitignore` template for list of given types. The template will be printed to the standard output so be sure to redirect it into your `.gitignore`.
 
 <p align="center">
-	<a href="https://github.com/josefdolezal/ignorio/"><img src="assets/cli.gif" alt="Ignorio terminal CLI" /></a><br /><br />
+    <br />
+	<a href="https://github.com/josefdolezal/ignorio/"><img src="assets/cli.gif" alt="Ignorio terminal CLI" /></a>
 </p>
-<br />
 
 ## Usage
 
