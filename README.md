@@ -1,5 +1,5 @@
 # ignorio [![Build Status](https://travis-ci.com/josefdolezal/ignorio.svg?token=AxpSW7yys3aiQpPG9zMW&branch=master)](https://travis-ci.com/josefdolezal/ignorio)
-Ignorio is a pure Swift command line tool helping you create `.gitignore` file for your project based on templates from [gitignore.io](gitignore.io).
+Ignorio is a pure Swift command line tool helping you create `.gitignore` file for your project based on templates from [gitignore.io](https://gitignore.io).
 
 For basic usage, just run:
 
