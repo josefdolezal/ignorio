@@ -1,18 +1,27 @@
-// swift-tools-version:3.1
+// swift-tools-version:4.0
 
 import PackageDescription
 
 let package = Package(
     name: "ignorio",
-    targets: [
-        Target(
+    products: [
+        .executable(
             name: "ignorio",
-            dependencies: ["IgnorioKit"]
-        ),
-        Target(name: "IgnorioKit")
+            targets: ["ignorio"]),
+        .library(
+            name: "IgnorioKit",
+            targets: ["IgnorioKit"])
     ],
     dependencies: [
-        .Package(url: "https://github.com/kylef/Commander.git", majorVersion: 0, minor: 6),
-        .Package(url: "https://github.com/antitypical/Result.git", majorVersion: 3, minor: 2)
+        .package(url: "https://github.com/kylef/Commander.git", .upToNextMinor(from: "0.8.0")),
+        .package(url: "https://github.com/antitypical/Result.git", .upToNextMinor(from: "3.2.4"))
+    ],
+    targets: [
+        .target(
+            name: "ignorio",
+            dependencies: ["IgnorioKit", "Result", "Commander"]),
+        .target(
+            name: "IgnorioKit",
+            dependencies: ["Result"])
     ]
 )
