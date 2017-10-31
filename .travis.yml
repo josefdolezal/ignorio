@@ -1,6 +1,6 @@
 language: objective-c
 os: osx
-osx_image: xcode8.3
+osx_image: xcode9
 
 install: gem install xcpretty
 script: make coverage-report
