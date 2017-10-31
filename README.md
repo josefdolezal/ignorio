@@ -14,6 +14,38 @@ This will fetch a `.gitignore` template for list of given types. The template wi
 	<a href="https://github.com/josefdolezal/ignorio/"><img src="assets/cli.gif" alt="Ignorio terminal CLI" /></a>
 </p>
 
+## Install
+
+<details open>
+<summary>Brew</summary>
+
+The recommended way to install `ignorio` is with brew package manager:
+
+```bash
+$ brew install josefdolezal/formulae/ignorio
+```
+
+Or you can add the custom Tap and refer to the app by its name:
+
+```bash
+$ brew tap josefdolezal/formulae
+$ brew install ignorio
+```
+
+</details>
+
+<details>
+<summary>From source</summary>
+
+If you prefer to build the app from source manually, you can use `make`:
+
+```bash
+$ make
+$ swift run ignorio <COMMAND>
+```
+
+</details>
+
 ## Usage
 
 Currently, following commands are supported by ignorio.
@@ -41,29 +73,6 @@ Not sure if your type is supported? The list representation is not so convenient
 ```bash
 $ ignorio search swift
 ```
-
-## Install
-
-<details open>
-<summary>Brew</summary>
-
-```bash
-$ brew install josefdolezal/formulae/ignorio --no-sandbox
-```
-
-</details>
-
-<details>
-<summary>From source</summary>
-
-Ignorio requires Swift 3 and Swift Package Manager for success build.
-
-```bash
-$ make
-$ ./.build/debug/ignorio
-```
-
-</details>
 
 ## Dependencies
 
