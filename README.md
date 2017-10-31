@@ -45,6 +45,15 @@ $ ignorio search swift
 ## Install
 
 <details open>
+<summary>Brew</summary>
+
+```bash
+$ brew install josefdolezal/formulae/ignorio --no-sandbox
+```
+
+</details>
+
+<details>
 <summary>From source</summary>
 
 Ignorio requires Swift 3 and Swift Package Manager for success build.
@@ -53,13 +62,6 @@ Ignorio requires Swift 3 and Swift Package Manager for success build.
 $ make
 $ ./.build/debug/ignorio
 ```
-
-</details>
-
-<details>
-<summary>Brew</summary>
-
-Not supported yet.
 
 </details>
 
