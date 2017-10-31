@@ -2,7 +2,7 @@ build:
 	swift build
 
 release:
-	swift build --configuration release
+	swift build --disable-sandbox --configuration release
 
 clean:
 	swift package clean
