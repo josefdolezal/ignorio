@@ -22,6 +22,10 @@ let package = Package(
             dependencies: ["IgnorioKit", "Result", "Commander"]),
         .target(
             name: "IgnorioKit",
-            dependencies: ["Result"])
+            dependencies: ["Result"]),
+        .testTarget(
+            name: "IgnorioKitTests",
+            dependencies: ["IgnorioKit"]
+        )
     ]
 )
