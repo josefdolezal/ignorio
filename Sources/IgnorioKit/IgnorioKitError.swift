@@ -19,6 +19,7 @@ public enum IgnorioKitError: Error, CustomStringConvertible {
     case networkError(underlying: Error)
     case unexpectedResponseFormat
     case requestTimeout
+    case unknownTypes(types: [String])
 
     /// String representation of error
     public var description: String {
@@ -34,6 +35,9 @@ public enum IgnorioKitError: Error, CustomStringConvertible {
 
         case .requestTimeout:
             return "The request timed out."
+
+        case let .unknownTypes(types):
+            return "Following types are not supported: \(types.joined(separator: ", "))."
         }
     }
 }
