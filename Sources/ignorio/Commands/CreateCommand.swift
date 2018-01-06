@@ -16,5 +16,12 @@ let createCommand = command(
     VariadicArgument<String>("TYPES", description: "Collection of types separated with space",
                              validator: typesValidator)
 ) { types in
-    print(try createGitignore(for: types))
+    // Fetch the requested types
+    let gitignore = try createGitignore(for: types)
+
+    // Run the content validation
+    try unknownTypesValidator(content: gitignore)
+
+    // Output the validated content to stdout
+    print(gitignore)
 }
