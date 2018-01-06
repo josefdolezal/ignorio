@@ -1,5 +1,5 @@
 //
-//  UknownTypesValidator.swift
+//  UnknownTypesValidator.swift
 //  ignorio
 //
 //  Created by Josef Dolezal on 04/01/2018.
@@ -8,7 +8,7 @@
 import Foundation
 
 // Default regex matching server error
-fileprivate let errorRegex = try! NSRegularExpression(pattern: "^#!! ERROR: ([^ ]+) .*!!#$", options: .anchorsMatchLines)
+fileprivate let errorRegex = try! NSRegularExpression(pattern: "^#!! ERROR: ([^ ]+).*$", options: [.anchorsMatchLines])
 
 /// Validates the server response for valid types.
 /// If server reported an error, validation fails and the error is thrown.
@@ -18,7 +18,7 @@ fileprivate let errorRegex = try! NSRegularExpression(pattern: "^#!! ERROR: ([^ 
 func unknownTypesValidator(content: String) throws {
     let matches = errorRegex
         .matches(in: content, range: NSRange(location: 0, length: content.count))
-        .filter { $0.numberOfRanges > 2 }
+        .filter { $0.numberOfRanges > 1 }
 
     // Check the content for matches
     let typeErrors = matches.flatMap { match in
