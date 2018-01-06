@@ -15,7 +15,7 @@ fileprivate let errorRegex = try! NSRegularExpression(pattern: "^#!! ERROR: ([^ 
 ///
 /// - Parameter content: Raw content returned from server
 /// - Throws: IgnorioKitError.uknownTypes on validation failure
-func unknownTypesValidator(content: String) throws {
+public func unknownTypesValidator(content: String) throws {
     let matches = errorRegex
         .matches(in: content, range: NSRange(location: 0, length: content.count))
         .filter { $0.numberOfRanges > 1 }
