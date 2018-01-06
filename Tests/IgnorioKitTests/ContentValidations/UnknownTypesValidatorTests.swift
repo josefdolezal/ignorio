@@ -6,29 +6,43 @@
 //
 
 import XCTest
+@testable import IgnorioKit
 
 class UnknownTypesValidatorTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testValidatorThrowsOnError() throws {
+        let content = """
+        # Created by https://www.gitignore.io/api/swyft,cxode
+
+        #!! ERROR: cxode is undefined. Use list command to see defined gitignore types !!#
+
+        #!! ERROR: swyft is undefined. Use list command to see defined gitignore types !!#
+
+        # End of https://www.gitignore.io/api/swyft,cxode
+        """
+
+        XCTAssertThrowsError(try unknownTypesValidator(content: content), "The validator should throw on failure.") { error in
+            guard case let IgnorioKitError.unknownTypes(types) = error else {
+                XCTFail("Unexpected exception thrown.")
+                return
+            }
+
+            XCTAssertEqual(types.count, 2)
+            XCTAssertEqual(types[0], "cxode")
+            XCTAssertEqual(types[1], "swyft")
         }
     }
-    
+
+    func testValidatorSucceedsForValidInput() {
+        let content = """
+        # Created by https://www.gitignore.io/api/swift
+
+        ## Build generated
+        build/
+        DerivedData/
+
+        # End of https://www.gitignore.io/api/swift
+        """
+
+        XCTAssertNoThrow(try unknownTypesValidator(content: content), "Should not throw when succeeds.")
+    }
 }
