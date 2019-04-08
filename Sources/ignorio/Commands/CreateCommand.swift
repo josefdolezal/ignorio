@@ -8,7 +8,6 @@
 
 import Foundation
 import Commander
-import Result
 import IgnorioKit
 
 /// Command for .gitignore file fetch

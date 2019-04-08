@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Result
 
 /// Main logic for files retrieving
 struct GitignoreioProvider {

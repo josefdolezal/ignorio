@@ -19,5 +19,5 @@ func typesValidator(_ types: [String]) throws -> [String] {
         throw IgnorioError.zeroTypesCount
     }
 
-    return types.flatMap({ $0.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) })
+    return types.compactMap { $0.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) }
 }

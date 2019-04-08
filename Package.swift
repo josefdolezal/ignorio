@@ -14,15 +14,13 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/kylef/Commander.git", .upToNextMinor(from: "0.8.0")),
-        .package(url: "https://github.com/antitypical/Result.git", .upToNextMinor(from: "3.2.4"))
     ],
     targets: [
         .target(
             name: "ignorio",
-            dependencies: ["IgnorioKit", "Result", "Commander"]),
+            dependencies: ["IgnorioKit", "Commander"]),
         .target(
-            name: "IgnorioKit",
-            dependencies: ["Result"]),
+            name: "IgnorioKit"),
         .testTarget(
             name: "IgnorioKitTests",
             dependencies: ["IgnorioKit"]

@@ -21,7 +21,7 @@ public func unknownTypesValidator(content: String) throws {
         .filter { $0.numberOfRanges > 1 }
 
     // Check the content for matches
-    let typeErrors = matches.flatMap { match in
+    let typeErrors = matches.compactMap { match -> String? in
         guard let range = Range(match.range(at: 1), in: content) else { return nil }
 
         return String(content[range])
