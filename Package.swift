@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.1
 
 import PackageDescription
 
@@ -13,12 +13,12 @@ let package = Package(
             targets: ["IgnorioKit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/kylef/Commander.git", .upToNextMinor(from: "0.8.0")),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1"),
     ],
     targets: [
         .target(
             name: "ignorio",
-            dependencies: ["IgnorioKit", "Commander"]),
+            dependencies: ["IgnorioKit", "ArgumentParser"]),
         .target(
             name: "IgnorioKit"),
         .testTarget(
