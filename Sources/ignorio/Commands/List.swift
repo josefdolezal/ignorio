@@ -7,13 +7,15 @@ extension Ignorio {
             abstract: "List all supported types by gitignore.io"
         )
 
-        func run() async throws {
-            let alphabeticList = try listSupportedTypes()
-            let list = alphabeticList
-                .map { $0.joined(separator: ",") }
-                .joined(separator: "\n")
+        var service: GitIgnoreIOService = .live()
 
-            print(list)
+        func run() async throws {
+            // Fetch supported types
+            let types = try await service.list().joined(separator: "\n")
+            // Print list of types into stdout
+            print(types)
         }
+
+        enum CodingKeys: CodingKey { }
     }
 }

@@ -9,16 +9,17 @@ extension Ignorio {
 
         @Argument(help: "Collection of types separated with space")
         var types: [String]
+        var service: GitIgnoreIOService = .live()
 
         func run() async throws {
-            // Fetch the requested types
-            let gitignore = try createGitignore(for: types)
+            // Fetch temaplate
+            let template = try await service.generate(types)
+            // Print result into stdout
+            print(template)
+        }
 
-            // Run the content validation
-            try unknownTypesValidator(content: gitignore)
-
-            // Output the validated content to stdout
-            print(gitignore)
+        enum CodingKeys: String, CodingKey {
+            case types
         }
     }
 }

@@ -9,16 +9,20 @@ extension Ignorio {
 
         @Argument(help: "Search for TYPE in available types at gitignore.io")
         var type: String
+        var service: GitIgnoreIOService = .live()
 
         func run() async throws {
-            let matches = try search(for: type)
+            let matches = try await service.search(type)
 
             if matches.count > 0 {
-                print("Found \(matches.count) results for `\(type)`:")
-                print(matches.joined(separator: " "))
+                print(matches.joined(separator: "\n"))
             } else {
                 print("No match for `\(type)`.")
             }
+        }
+
+        enum CodingKeys: String, CodingKey {
+            case type
         }
     }
 }
