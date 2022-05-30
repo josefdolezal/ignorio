@@ -1,4 +1,5 @@
 # ignorio [![Build Status](https://travis-ci.com/josefdolezal/ignorio.svg?token=AxpSW7yys3aiQpPG9zMW&branch=master)](https://travis-ci.com/josefdolezal/ignorio) [![codecov](https://codecov.io/gh/josefdolezal/ignorio/branch/master/graph/badge.svg)](https://codecov.io/gh/josefdolezal/ignorio)
+
 Ignorio is a pure Swift command line tool helping you create `.gitignore` file for your project based on templates from [gitignore.io](https://gitignore.io).
 
 For basic usage, just run:
@@ -50,12 +51,12 @@ $ swift run ignorio <COMMAND>
 
 Currently, following commands are supported by ignorio.
 
-### Create
+### Generate
 
-Fetches `.gitignore` template for given list of types. 
+Fetches `.gitignore` template for given list of types.
 
 ```bash
-$ ignorio create macos xcode swift
+$ ignorio generate macos xcode swift
 ```
 
 ### List
@@ -78,10 +79,7 @@ $ ignorio search swift
 
 Ignorio is build on top of following dependencies:
 
-* [Commander](https://github.com/kylef/Commander), licensed under `BSD 3-clause`
-* [Result](https://github.com/antitypical/Result), licensed under `MIT`
-
-Big thanks to its creators and contributors! :tada:
+- [Swift Argument Parser](https://github.com/apple/swift-argument-parser), licensed under `Apache License 2.0`
 
 ## License
 

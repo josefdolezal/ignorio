@@ -1,7 +1,0 @@
-language: objective-c
-os: osx
-osx_image: xcode9
-
-install: gem install xcpretty
-script: make coverage-report
-after_success: bash <(curl -s https://codecov.io/bash)

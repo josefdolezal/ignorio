@@ -1,26 +1,25 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
     name: "ignorio",
+    platforms: [
+        .macOS(.v10_15)
+    ],
     products: [
-        .executable(
-            name: "ignorio",
-            targets: ["ignorio"]),
         .library(
             name: "IgnorioKit",
             targets: ["IgnorioKit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1"),
+        .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "1.1.2")),
     ],
     targets: [
-        .target(
-            name: "ignorio",
-            dependencies: ["IgnorioKit", "ArgumentParser"]),
-        .target(
-            name: "IgnorioKit"),
+        .executableTarget(name: "ignorio", dependencies: [
+            "IgnorioKit", .product(name: "ArgumentParser", package: "swift-argument-parser")
+        ]),
+        .target(name: "IgnorioKit"),
         .testTarget(
             name: "IgnorioKitTests",
             dependencies: ["IgnorioKit"]

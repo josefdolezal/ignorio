@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug ignorio",
+      "program": "${workspaceFolder:ignorio}/.build/debug/ignorio",
+      "args": [],
+      "cwd": "${workspaceFolder:ignorio}",
+      "preLaunchTask": "swift: Build Debug ignorio"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Release ignorio",
+      "program": "${workspaceFolder:ignorio}/.build/release/ignorio",
+      "args": [],
+      "cwd": "${workspaceFolder:ignorio}",
+      "preLaunchTask": "swift: Build Release ignorio"
+    }
+  ]
+}
